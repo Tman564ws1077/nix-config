@@ -43,6 +43,7 @@
     pkgs.ollama-cuda
     pkgs.btop
     pkgs.xdg-desktop-portal-hyprland
+    pkgs.nixfmt
   ];
 
   programs.vscodium = {

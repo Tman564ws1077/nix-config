@@ -82,6 +82,9 @@
     fastfetch
     ffmpeg-full
     jq
+    zip
+    unzip
+    pavucontrol
   ];
 
   programs.hyprland.enable = true;

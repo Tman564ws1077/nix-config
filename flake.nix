@@ -11,12 +11,17 @@
   outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./nixos/configuration.nix ];
-    };
-
-    homeConfigurations.tristan = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [ ./home-manager/home.nix ];
+      modules = [
+        ./nixos/configuration.nix
+        home-manager.nixosModules.default
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.tristan = ./home-manager/home.nix;
+          };
+        }
+        ];
     };
   };  
 }
