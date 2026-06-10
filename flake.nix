@@ -13,15 +13,12 @@
       system = "x86_64-linux";
       modules = [
         ./nixos/configuration.nix
-        home-manager.nixosModules.default
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.tristan = ./home-manager/home.nix;
-          };
-        }
-        ];
+      ];
+    };
+
+    homeConfigurations."tristan@nixos" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [ ./home-manager/home.nix ];
     };
   };  
 }
