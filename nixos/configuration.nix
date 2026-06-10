@@ -102,6 +102,22 @@
   services.ollama = {
     enable = true;
   };
+
+  services.open-webui = {
+    enable = true;
+    port = 8888;
+    environment = {
+      ANONYMIZED_TELEMETRY = "False";
+      DO_NOT_TRACK = "True";
+      SCARF_NO_ANALYTICS = "True";
+
+      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
+      WEBUI_AUTH = "False";
+    };
+  };
+
+  cargoHash = "sha256-w/LURyw8dqZ0ZsgYeHN4fTlNgJnTeIaLGlz/D6Ey+G0=";
+
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
