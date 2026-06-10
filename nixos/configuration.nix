@@ -116,9 +116,6 @@
     };
   };
 
-  cargoHash = "sha256-w/LURyw8dqZ0ZsgYeHN4fTlNgJnTeIaLGlz/D6Ey+G0=";
-
-  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
